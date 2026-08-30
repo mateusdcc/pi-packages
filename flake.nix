@@ -36,9 +36,12 @@
           app-screenshot = pkgs.callPackage ./packages/extensions/app-screenshot { mkPiExtension = mkExt; };
           extension-app-screenshot = app-screenshot;
 
-          archify-extension = pkgs.callPackage ./packages/extensions/archify { mkPiExtension = mkExt; };
-          extension-archify = archify-extension;
-          archify = archify-extension.passthru.archifyPackage;
+          lazy-archify = pkgs.callPackage ./packages/extensions/lazy-archify { mkPiExtension = mkExt; };
+          extension-lazy-archify = lazy-archify;
+          archify-extension = lazy-archify;
+          extension-archify = lazy-archify;
+
+          archify = pkgs.callPackage ./packages/extensions/archify { };
 
           image-tools = pkgs.callPackage ./packages/extensions/image-tools { mkPiExtension = mkExt; };
           extension-image-tools = image-tools;
@@ -56,7 +59,8 @@
         default = import ./modules;
         extensions = {
           appScreenshot = import ./modules/extensions/app-screenshot.nix;
-          archify = import ./modules/extensions/archify.nix;
+          lazyArchify = import ./modules/extensions/lazy-archify.nix;
+          archify = import ./modules/extensions/lazy-archify.nix;
           imageTools = import ./modules/extensions/image-tools.nix;
           subagents = import ./modules/extensions/subagents.nix;
         };

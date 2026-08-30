@@ -31,7 +31,7 @@ let
           enable = true;
           extensions = {
             subagents.enable = true;
-            archify.enable = true;
+            lazy-archify.enable = true;
             image-tools.enable = true;
             app-screenshot.enable = true;
           };

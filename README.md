@@ -22,7 +22,7 @@ Modular, production-ready custom packages, extensions, and AI agent skills for t
 | Extension | Module Option | Upstream Source | Description |
 | :--- | :--- | :--- | :--- |
 | **subagents** | `programs.pi.extensions.subagents.enable` | [`nicobailon/pi-subagents`](https://github.com/nicobailon/pi-subagents) | Single-agent delegation and scripted multi-agent workflows. Automatically packages `nodejs_22`, `git`, `jq`, `ripgrep`, `coreutils`. |
-| **archify** | `programs.pi.extensions.archify.enable` | [`tt-a1i/archify`](https://github.com/tt-a1i/archify) | Automated system and architecture diagramming CLI & lazy-loaded skill. |
+| **lazy-archify** | `programs.pi.extensions.lazy-archify.enable` | [`tt-a1i/archify`](https://github.com/tt-a1i/archify) | **On-Demand Diagramming Injection**: Monitors user inputs and only injects the Archify diagramming skill directive into context when `archify` or `/archify` is explicitly triggered. Wraps the upstream `archify` CLI. |
 | **image-tools** | `programs.pi.extensions.image-tools.enable` | [`MasuRii/pi-image-tools`](https://github.com/MasuRii/pi-image-tools) | Clipboard image attach and recent image picker (`pngpaste`). |
 | **app-screenshot** | `programs.pi.extensions.app-screenshot.enable` | [`mateusdcc/pi-app-screenshot`](https://github.com/mateusdcc/pi-app-screenshot) | Native macOS application window, full screen, and headless browser capture. |
 
@@ -33,6 +33,18 @@ Modular, production-ready custom packages, extensions, and AI agent skills for t
 | **generative-ui** | `programs.pi.skills.generative-ui.enable` | Interactive Tailwind CSS HTML widgets and generative UI styling. |
 | **agy-customizations** | `programs.pi.skills.agy-customizations.enable` | Antigravity Customization System guide (rules, skills, plugins, hooks, MCP). |
 | **antigravity-guide** | `programs.pi.skills.antigravity-guide.enable` | Antigravity core guide and reference. |
+
+---
+
+## How `lazy-archify` Works
+
+Standard agent skills pre-load large prompt runbooks into the agent's context window on every turn, consuming precious tokens even when no diagramming is requested.
+
+`lazy-archify` solves this via on-demand prompt injection:
+1. It listens to user message inputs.
+2. If the user input mentions `archify` or triggers `/archify`, it dynamically injects the Archify system diagramming specification into that turn's prompt context.
+3. If `archify` is not mentioned, zero skill tokens are added to the conversation.
+4. It provides the upstream `archify` binary in the agent's PATH for automated diagram validation and delivery (`archify validate`, `archify deliver`).
 
 ---
 
@@ -65,12 +77,11 @@ Modular, production-ready custom packages, extensions, and AI agent skills for t
             programs.pi = {
               extensions = {
                 subagents.enable = true;
-                archify.enable = true;
+                lazy-archify.enable = true;
                 image-tools.enable = true;
                 app-screenshot.enable = true;
               };
               skills = {
-                commit-style.enable = true;
                 generative-ui.enable = true;
               };
             };
@@ -103,12 +114,9 @@ let
         programs.pi = {
           extensions = {
             subagents.enable = true;
-            archify.enable = true;
+            lazy-archify.enable = true;
             image-tools.enable = true;
             app-screenshot.enable = true;
-          };
-          skills = {
-            commit-style.enable = true;
           };
         };
       }
@@ -136,13 +144,12 @@ Add `pi-packages` to your flake inputs and import `pi-packages.homeModules.defau
 
     extensions = {
       subagents.enable = true;
-      archify.enable = true;
+      lazy-archify.enable = true;
       image-tools.enable = true;
       app-screenshot.enable = true;
     };
 
     skills = {
-      commit-style.enable = true;
       generative-ui.enable = true;
     };
   };
