@@ -1,0 +1,115 @@
+{
+  "nodes": {
+    "deep-comprehension-engine": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpi",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1787749393,
+        "narHash": "sha256-ZdbcINoJNn7HoXszgjT8DkabLEur1JOUMfEfeQT9Bdk=",
+        "owner": "mateusdcc",
+        "repo": "deep-comprehension-engine",
+        "rev": "c9e31d2e01ab0926d36b6419b06759e9475c36d1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mateusdcc",
+        "repo": "deep-comprehension-engine",
+        "type": "github"
+      }
+    },
+    "home-manager": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpi",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1787797243,
+        "narHash": "sha256-8+Q7NOB7RPajRjA4pbCDLzqH+MTjnG9x6LUPLfL2joA=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "99c9ec63390f1d8c14d95d9e8b17cc29cfbd4e11",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "nix-darwin": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpi",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1783744694,
+        "narHash": "sha256-2cp6N3rrwnGYLTx9l6N+NI+kwrCWxvJUbj5WJhvB29A=",
+        "owner": "nix-darwin",
+        "repo": "nix-darwin",
+        "rev": "c3e90c89649b07d1a96e4b9dd6cd0d6e44b91a74",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-darwin",
+        "ref": "nix-darwin-26.05",
+        "repo": "nix-darwin",
+        "type": "github"
+      }
+    },
+    "nixpi": {
+      "inputs": {
+        "deep-comprehension-engine": "deep-comprehension-engine",
+        "home-manager": "home-manager",
+        "nix-darwin": "nix-darwin",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1788119692,
+        "narHash": "sha256-BByS3yDPsDPyHoBjpBbB4PJ2XdzF32S9KShjvDtu+bA=",
+        "owner": "mateusdcc",
+        "repo": "nixpi",
+        "rev": "cdf65677d21536c7189921b71fa51d70dbd4eee6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mateusdcc",
+        "repo": "nixpi",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1788039129,
+        "narHash": "sha256-pa4Q0qErvCvzCaaUph7Sm37RhR4xvPrYI8Lgz6k85+A=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "d2f67949798825fe853f7c5d0492b8bf016d3f88",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "nixpi": "nixpi",
+        "nixpkgs": "nixpkgs"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
