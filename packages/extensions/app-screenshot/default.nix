@@ -6,13 +6,13 @@
 
 mkPiExtension {
   pname = "app-screenshot";
-  version = "1.0.0";
+  version = "1.1.0";
 
   src = fetchFromGitHub {
     owner = "mateusdcc";
     repo = "pi-app-screenshot";
-    rev = "v1.0.0";
-    hash = "sha256-b5zsOaGKqcaj5kxBX4MCmP+fEb2NsKxqGHhj9EWYvoc=";
+    rev = "v1.1.0";
+    hash = "sha256-aMixo+kyMu3y1Tl5zb8WaF4IDQkUkrFwYtVnQ2U029U=";
   };
 
   runtimePackages = with pkgs; [
@@ -24,7 +24,7 @@ mkPiExtension {
   ];
 
   meta = {
-    description = "High-fidelity native macOS application, desktop, Sketchybar, and browser screenshot capture extension for Pi";
+    description = "Native macOS application window, full screen, and headless browser screenshot capture extension for Pi";
     homepage = "https://github.com/mateusdcc/pi-app-screenshot";
     license = pkgs.lib.licenses.mit;
   };

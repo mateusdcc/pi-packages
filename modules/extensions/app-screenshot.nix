@@ -13,7 +13,7 @@ let
 in
 {
   options.programs.pi.extensions.app-screenshot = {
-    enable = lib.mkEnableOption "Pi custom app and desktop screenshot capture extension";
+    enable = lib.mkEnableOption "Pi app, screen, and headless browser screenshot capture extension";
 
     package = lib.mkOption {
       type = lib.types.package;

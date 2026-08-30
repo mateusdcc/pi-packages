@@ -24,13 +24,12 @@ Modular, production-ready custom packages, extensions, and AI agent skills for t
 | **subagents** | `programs.pi.extensions.subagents.enable` | [`nicobailon/pi-subagents`](https://github.com/nicobailon/pi-subagents) | Single-agent delegation and scripted multi-agent workflows. Automatically packages `nodejs_22`, `git`, `jq`, `ripgrep`, `coreutils`. |
 | **archify** | `programs.pi.extensions.archify.enable` | [`tt-a1i/archify`](https://github.com/tt-a1i/archify) | Automated system and architecture diagramming CLI & lazy-loaded skill. |
 | **image-tools** | `programs.pi.extensions.image-tools.enable` | [`MasuRii/pi-image-tools`](https://github.com/MasuRii/pi-image-tools) | Clipboard image attach and recent image picker (`pngpaste`). |
-| **app-screenshot** | `programs.pi.extensions.app-screenshot.enable` | [`mateusdcc/pi-app-screenshot`](https://github.com/mateusdcc/pi-app-screenshot) | Native macOS off-screen status bar rendering, window capture, and headless browser capture. |
+| **app-screenshot** | `programs.pi.extensions.app-screenshot.enable` | [`mateusdcc/pi-app-screenshot`](https://github.com/mateusdcc/pi-app-screenshot) | Native macOS application window, full screen, and headless browser capture. |
 
 ### Skills
 
 | Skill | Module Option | Description |
 | :--- | :--- | :--- |
-| **commit-style** | `programs.pi.skills.commit-style.enable` | Conventional Commits v1.0.0 specification and style guide. |
 | **generative-ui** | `programs.pi.skills.generative-ui.enable` | Interactive Tailwind CSS HTML widgets and generative UI styling. |
 | **agy-customizations** | `programs.pi.skills.agy-customizations.enable` | Antigravity Customization System guide (rules, skills, plugins, hooks, MCP). |
 | **antigravity-guide** | `programs.pi.skills.antigravity-guide.enable` | Antigravity core guide and reference. |
