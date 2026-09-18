@@ -51,7 +51,11 @@ let
   # Check that runtime packages are correctly populated
   hasGit = lib.any (p: p.pname or p.name == "git") fullCfg.finalRuntimePackages;
   hasNode = lib.any (p: p.pname or p.name == "nodejs") fullCfg.finalRuntimePackages;
-  hasPngpaste = lib.any (p: p.pname or p.name == "pngpaste") fullCfg.finalRuntimePackages;
+  hasPngpaste =
+    if pkgs.stdenv.isDarwin then
+      lib.any (p: p.pname or p.name == "pngpaste") fullCfg.finalRuntimePackages
+    else
+      true;
   hasRipgrep = lib.any (p: p.pname or p.name == "ripgrep") fullCfg.finalRuntimePackages;
   hasCurl = lib.any (p: p.pname or p.name == "curl") fullCfg.finalRuntimePackages;
 

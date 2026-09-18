@@ -15,11 +15,13 @@ mkPiExtension {
     hash = "sha256-IrcY+FQgbfUkUTVNhne3gWGcw6CmQq1i/rQfO/u4qew=";
   };
 
-  runtimePackages = with pkgs; [
-    pngpaste
-    nodejs_22
-    coreutils
-  ];
+  runtimePackages =
+    with pkgs;
+    [
+      nodejs_22
+      coreutils
+    ]
+    ++ pkgs.lib.optional pkgs.stdenv.isDarwin pkgs.pngpaste;
 
   meta = {
     description = "Pi image tools extension for clipboard image attach and recent image picker";
