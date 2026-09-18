@@ -25,6 +25,7 @@ Modular, production-ready custom packages, extensions, and AI agent skills for t
 | **lazy-archify** | `programs.pi.extensions.lazy-archify.enable` | [`tt-a1i/archify`](https://github.com/tt-a1i/archify) | **On-Demand Diagramming Injection**: Monitors user inputs and only injects the Archify diagramming skill directive into context when `archify` or `/archify` is explicitly triggered. Wraps the upstream `archify` CLI. |
 | **image-tools** | `programs.pi.extensions.image-tools.enable` | [`MasuRii/pi-image-tools`](https://github.com/MasuRii/pi-image-tools) | Clipboard image attach and recent image picker (`pngpaste`). |
 | **app-screenshot** | `programs.pi.extensions.app-screenshot.enable` | [`mateusdcc/pi-app-screenshot`](https://github.com/mateusdcc/pi-app-screenshot) | Native macOS application window, full screen, and headless browser capture. |
+| **mcp-auto-installer** | `programs.pi.extensions.mcp-auto-installer.enable` | Local / In-tree | Intercepts missing tool calls, searches npm, prompts user, dynamically connects MCP servers, and persists configs to `shell.nix`. |
 
 ### Skills
 

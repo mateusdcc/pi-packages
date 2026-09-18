@@ -36,12 +36,15 @@
           app-screenshot = pkgs.callPackage ./packages/extensions/app-screenshot { mkPiExtension = mkExt; };
           extension-app-screenshot = app-screenshot;
 
-          lazy-archify = pkgs.callPackage ./packages/extensions/lazy-archify { mkPiExtension = mkExt; };
+          archify = pkgs.callPackage ./packages/extensions/archify { };
+
+          lazy-archify = pkgs.callPackage ./packages/extensions/lazy-archify {
+            mkPiExtension = mkExt;
+            archifyPkg = archify;
+          };
           extension-lazy-archify = lazy-archify;
           archify-extension = lazy-archify;
           extension-archify = lazy-archify;
-
-          archify = pkgs.callPackage ./packages/extensions/archify { };
 
           image-tools = pkgs.callPackage ./packages/extensions/image-tools { mkPiExtension = mkExt; };
           extension-image-tools = image-tools;

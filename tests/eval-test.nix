@@ -34,6 +34,7 @@ let
             lazy-archify.enable = true;
             image-tools.enable = true;
             app-screenshot.enable = true;
+            mcp-auto-installer.enable = true;
           };
           skills = {
             generative-ui.enable = true;
@@ -52,6 +53,7 @@ let
   hasNode = lib.any (p: p.pname or p.name == "nodejs") fullCfg.finalRuntimePackages;
   hasPngpaste = lib.any (p: p.pname or p.name == "pngpaste") fullCfg.finalRuntimePackages;
   hasRipgrep = lib.any (p: p.pname or p.name == "ripgrep") fullCfg.finalRuntimePackages;
+  hasCurl = lib.any (p: p.pname or p.name == "curl") fullCfg.finalRuntimePackages;
 
   # Check skills
   hasGenUi = fullCfg.skills ? generative-ui && fullCfg.skills.generative-ui.package != null;
@@ -64,6 +66,7 @@ let
     && hasNode
     && hasPngpaste
     && hasRipgrep
+    && hasCurl
     && hasGenUi
     && hasAgyCustom
     && hasAgyGuide;
