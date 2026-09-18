@@ -49,6 +49,9 @@
           subagents = pkgs.callPackage ./packages/extensions/subagents { };
           extension-subagents = subagents;
 
+          mcp-auto-installer = pkgs.callPackage ./packages/extensions/mcp-auto-installer { mkPiExtension = mkExt; };
+          extension-mcp-auto-installer = mcp-auto-installer;
+
           skill-generative-ui = pkgs.callPackage ./packages/skills/generative-ui { mkPiSkill = mkSkill; };
           skill-agy-customizations = pkgs.callPackage ./packages/skills/agy-customizations { mkPiSkill = mkSkill; };
           skill-antigravity-guide = pkgs.callPackage ./packages/skills/antigravity-guide { mkPiSkill = mkSkill; };
@@ -63,6 +66,7 @@
           archify = import ./modules/extensions/lazy-archify.nix;
           imageTools = import ./modules/extensions/image-tools.nix;
           subagents = import ./modules/extensions/subagents.nix;
+          mcpAutoInstaller = import ./modules/extensions/mcp-auto-installer.nix;
         };
         skills = {
           generativeUi = import ./modules/skills/generative-ui.nix;
