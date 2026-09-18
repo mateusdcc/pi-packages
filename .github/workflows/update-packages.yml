@@ -1,0 +1,69 @@
+name: Update Upstream Packages
+
+on:
+  schedule:
+    # Runs weekly on Tuesdays at 04:00 UTC
+    - cron: "0 4 * * 2"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-packages:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@v16
+
+      - name: Magic Nix Cache
+        uses: DeterminateSystems/magic-nix-cache-action@v9
+
+      - name: Update upstream packages using nix-update
+        run: |
+          nix shell nixpkgs#nix-update nixpkgs#git -c bash -c '
+            set -euo pipefail
+
+            echo "Checking upstream packages for version and hash updates..."
+
+            # Update subagents (recomputes revision and npmDepsHash)
+            nix-update subagents --flake || true
+
+            # Update app-screenshot
+            nix-update app-screenshot --flake || true
+
+            # Update image-tools
+            nix-update image-tools --flake || true
+
+            # Update archify
+            nix-update archify --flake || true
+          '
+
+      - name: Format Nix code
+        run: nix fmt || true
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore(packages): update upstream extensions and dependencies"
+          title: "chore(packages): update upstream extensions"
+          body: |
+            Automated update of upstream package sources, revisions, and hashes.
+
+            Packages checked:
+            - `subagents` (`pi-subagents`)
+            - `app-screenshot` (`pi-app-screenshot`)
+            - `image-tools` (`pi-image-tools`)
+            - `archify` (`archify`)
+
+            CI matrix will verify evaluation and build checks across Linux and macOS.
+          branch: "automated/update-packages"
+          delete-branch: true
+          labels: |
+            dependencies
+            automated
