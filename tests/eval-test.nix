@@ -57,8 +57,10 @@ let
 
   # Check skills
   hasGenUi = fullCfg.skills ? generative-ui && fullCfg.skills.generative-ui.package != null;
-  hasAgyCustom = fullCfg.skills ? agy-customizations && fullCfg.skills.agy-customizations.package != null;
-  hasAgyGuide = fullCfg.skills ? antigravity-guide && fullCfg.skills.antigravity-guide.package != null;
+  hasAgyCustom =
+    fullCfg.skills ? agy-customizations && fullCfg.skills.agy-customizations.package != null;
+  hasAgyGuide =
+    fullCfg.skills ? antigravity-guide && fullCfg.skills.antigravity-guide.package != null;
 
   allPass =
     emptyRuntimePackages == [ ]

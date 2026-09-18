@@ -52,12 +52,18 @@
           subagents = pkgs.callPackage ./packages/extensions/subagents { };
           extension-subagents = subagents;
 
-          mcp-auto-installer = pkgs.callPackage ./packages/extensions/mcp-auto-installer { mkPiExtension = mkExt; };
+          mcp-auto-installer = pkgs.callPackage ./packages/extensions/mcp-auto-installer {
+            mkPiExtension = mkExt;
+          };
           extension-mcp-auto-installer = mcp-auto-installer;
 
           skill-generative-ui = pkgs.callPackage ./packages/skills/generative-ui { mkPiSkill = mkSkill; };
-          skill-agy-customizations = pkgs.callPackage ./packages/skills/agy-customizations { mkPiSkill = mkSkill; };
-          skill-antigravity-guide = pkgs.callPackage ./packages/skills/antigravity-guide { mkPiSkill = mkSkill; };
+          skill-agy-customizations = pkgs.callPackage ./packages/skills/agy-customizations {
+            mkPiSkill = mkSkill;
+          };
+          skill-antigravity-guide = pkgs.callPackage ./packages/skills/antigravity-guide {
+            mkPiSkill = mkSkill;
+          };
         }
       );
 
