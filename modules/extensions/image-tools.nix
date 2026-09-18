@@ -24,8 +24,6 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    programs.pi.runtimePackages = with pkgs; [
-      pngpaste
-    ];
+    programs.pi.runtimePackages = lib.optional pkgs.stdenv.isDarwin pkgs.pngpaste;
   };
 }
