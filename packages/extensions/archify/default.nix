@@ -5,7 +5,7 @@
 
 pkgs.stdenv.mkDerivation rec {
   pname = "archify";
-  version = "2.16.0";
+  version = "3.0.1";
 
   src = fetchFromGitHub {
     owner = "tt-a1i";

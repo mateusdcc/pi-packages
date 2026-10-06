@@ -6,7 +6,7 @@
 
 buildNpmPackage {
   pname = "pi-subagents";
-  version = "0.58.0";
+  version = "0.76.1";
 
   src = fetchFromGitHub {
     owner = "nicobailon";
